@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+	<header>
+<a href="#" class="logo"><i class='bx bx-conversation' style='color:#007dff'  ></i></i>We Meet</a>
+        <ul class="navlist">
+            <li><a href="#home" class="avtive">Home</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#TODO">NEON</a></li>
+            <li><a href="#contact-us">Contact us</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="{% url 'vcall' %}"><i class='bx bx-video-plus'></i></a>
+            <a href="{% url 'chat' %}"><i class='bx bx-message-rounded-dots'></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Welcome to <span>We Meet</span><br></h1><p class="home-p">connect everywhere, anytime</p>
+            <a href="#" class="btn">Profile<i class='bx bxs-right-arrow'></i></a>
+        </div>
+
+        <div class="home-image">
+            <img src="{% static 'images/home-img.png' %}" alt="">
+        </div>
+    </section>
+
+    <!--about us-->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="{% static 'images/about-img.png' %}" alt="">
+        </div>
+        <div class="about-text">
+            <h2>About We Meet.</h2>
+            <p>"Welcome to We Meet, the ultimate video conferencing platform designed to bring people together from anywhere in the world.
+                 Our mission is to provide a seamless and intuitive virtual meeting experience, empowering individuals and teams to collaborate,
+                  communicate, and connect like never before. With our cutting-edge video conferencing technology, real-time chatting,
+                   and innovative AI chatbot, we're revolutionizing the way people meet and interact online. Plus, our event schedule feature 
+                   ensures that you never miss a meeting or appointment. At We Meet, we're passionate about breaking down geographical barriers and 
+                   fostering meaningful connections. Join our community today and discover a new way to meet, collaborate, and succeed!" 
+            </p>
+            <a href="#" class="btn">More About Us<i class='bx bxs-right-arrow'></i></a>
+        </div>
+    </section>
+    <section class="about" id="TODO">
+        <div class="about-img">
+            <img src="{%static 'images/neon-img.png' %}" alt="">
+        </div>
+        <div class="about-text">
+            <h2>NEON</h2>
+            <p>NEON features a simple AI chatbot that focuses 
+                solely on providing a seamless chatting experience
+                 for users. This straightforward tool allows 
+                 visitors to engage in real-time conversations, 
+                 making it easy to ask questions and receive 
+                 instant responses. With its user-friendly 
+                 interface, NEON's chatbot enhances communication 
+                 on the website, ensuring that users can connect 
+                 and interact effortlessly. Whether for casual 
+                 conversation or quick inquiries, NEON's chatbot is 
+                 designed to make chatting enjoyable and efficient.</p>
+                 <a href="#" class="btn">Make chat<i class='bx bxs-right-arrow'></i></a>
+        </div>
+        
+        
+    </section>
+
+    <section class="about" id="TODO">
+        <div class="about-img">
+            <img src="{%static 'images/vcall1-img.png' %}" alt="">
+        </div>
+        <div class="about-text">
+            <h2>Connect with me</h2>
+            <p>We Meet is proud to introduce its 
+                innovative video conferencing 
+                feature, designed to enhance 
+                communication and collaboration for 
+                users around the globe. With a 
+                user-friendly interface and seamless 
+                integration, We Meet allows individuals 
+                and teams to connect effortlessly through 
+                high-quality video and audio. Whether 
+                you're hosting a virtual meeting, conducting 
+                a webinar, or catching up with friends, our 
+                platform ensures a smooth experience with 
+                real-time screen sharing, chat functionality, 
+                and customizable meeting rooms. Security is a top 
+                priority, and We Meet employs advanced encryption 
+                protocols to protect your conversations. Join us 
+                in redefining the way you connect and collaborate
+                —experience the future of online meetings with We Meet!</p>
+                 <a href="{% url 'vcall' %}" class="btn">Start calling<i class='bx bxs-right-arrow'></i></a>
+        </div>
+   
+    </section>
+
+    <section class="about" id="TODO">
+        <div class="about-img">
+            <img src="{%static 'images/chat-img.png' %}" alt="">
+        </div>
+        <div class="about-text">
+            <h2>Connect with me</h2>
+            <p>We Meet is proud to introduce its 
+                innovative video conferencing 
+                feature, designed to enhance 
+                communication and collaboration for 
+                users around the globe. With a 
+                user-friendly interface and seamless 
+                integration, We Meet allows individuals 
+                and teams to connect effortlessly through 
+                high-quality video and audio. Whether 
+                you're hosting a virtual meeting, conducting 
+                a webinar, or catching up with friends, our 
+                platform ensures a smooth experience with 
+                real-time screen sharing, chat functionality, 
+                and customizable meeting rooms. Security is a top 
+                priority, and We Meet employs advanced encryption 
+                protocols to protect your conversations. Join us 
+                in redefining the way you connect and collaborate
+                —experience the future of online meetings with We Meet!</p>
+                 <a href="{% url 'vcall' %}" class="btn">Start calling<i class='bx bxs-right-arrow'></i></a>
+        </div>
+   
+    </section>
+
+
+    <section class="contact-us" id="contact-us">
+        <h2>Connect With Us</h2>
+        <p>The "Contact Us" section of WeMeet is designed to
+             facilitate easy communication with our team. Whether
+              you have questions, feedback, or need assistance,
+               simply fill out the form provided, and we’ll get 
+               back to you promptly. Your inquiries are important 
+                to us, and we look forward to connecting with you!</p>
+        <div class="social-media">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+        </div>
+    </section>
+    <section class="footer">
+        
+        <div class="main-d">
+            <a href="#"><i class='bx bxs-location-plus'></i> Main Street 65, ny, ny</a>
+        </div>
+        <div class="main-d">
+            <a href="#"><i class='bx bx-mobile-alt'></i>0497-277-1133</a>
+        </div>
+        <div class="main-d">
+            <a href="#"><i class='bx bxl-youtube'></i> Jhon Cooper Honey</a>
+        </div>
+
+    </section>
+    <script src="https://unpkg.com/scrollreveal"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="sign-in-up">
+                <form class="signin-form" method="post" action="{% url 'signin' %}" >
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" name="username">    
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <input type="submit" value="Login" class="btn solid">                   
+                </form>
+
+                <form class="signup-form" method="post" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" name="username">    
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="E-mail" name="email">    
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <input type="submit" value="Sign up" class="btn solid">                   
+                </form>
+            </div>
+        </div>
+        <div class="panel-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>Are you new here ? Create your account today and unlock exclusive features and benefits.  </p>
+                    <button class="btn transparent" id="sign-up-btn">Sign up</button>
+                </div>
+                <img src="{% static 'images/signup.svg' %}" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>Welcome back! Enter your username and password to access your account and continue where you left off.</p>
+                    <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="{% static 'images/signin.svg' %}" alt="" class="image">
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

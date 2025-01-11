@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/dashbord.css' %}">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            
+          <a class="navbar-brand" href="{% url 'home' %}" > <i class='bx bx-conversation' style='color:#007dff'  ></i><strong> WeMeet</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
+            <ul class="navbar-nav">
+              <li class="nav-item" >
+                
+              </li>
+            </ul>
+           
+          </div>
+        </div>
+      </nav>
+      <br><br>
+      
+		  
+      <section class="about" id="about">
+        <div class="about-img">
+            <img src="{% static 'images/vcall-img.jpg' %}" alt="">
+        </div>
+        <div class="about-text">
+          <h1>Welcome {{user.username}}</h1><br>
+            <h2>Video confference.</h2>
+            <p>We Meet is an innovative platform designed to enhance virtual 
+              communication through its seamless video conference feature. 
+              With user-friendly interfaces and high-quality video and audio 
+              capabilities, We Meet allows individuals and teams to connect 
+              effortlessly, regardless of their location. Whether for business 
+              meetings, online classes, or social gatherings, our platform 
+              ensures a reliable and engaging experience. Users can easily 
+              schedule, join, and manage their video calls, fostering 
+              collaboration and connection in today’s digital world. Embrace 
+              the future of communication with We Meet, where every meeting 
+              feels personal and productive.
+            </p>
+            
+            <a href="{% url 'meeting' %}" class="btn">create meeting<i class='bx bxs-right-arrow'></i></a>
+            <a href="{% url 'join' %}" class="btn">join meeting<i class='bx bxs-right-arrow'></i></a>
+            
+        </div>
+        
+    </section>
+    
+
+      <div class="container">
+        
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

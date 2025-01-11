@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/joinRoom.css' %}">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            
+          <a class="navbar-brand" href="#"> <i class='bx bx-conversation' style='color:#007dff'  ></i><strong> WeMeet</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
+            <ul class="navbar-nav">
+              <li class="nav-item" >
+                <a href="{% url 'home' %}"  >Back to home<i class='bx bxs-right-arrow'></i></a>
+              </li>
+            </ul>
+           
+          </div>
+        </div>
+      </nav>
+      <br><br>
+      
+      <div class="container">
+        <div class="login form">
+          <header>Join Room</header>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter room ID" name="roomID">
+            <input type="submit" class="button" value="Join">
+            <center>
+              {% if success %}
+              <p style="color: rgb(17, 166, 253);"><b>{{ success }}</b></p>
+              {% endif %}
+              {% if error %}
+              <p style="color: red;">{{ error }}</p>
+              {% endif %}
+            </center>
+          </form>
+        </div>
+      </div>
+      
+            
+        </div>
+        
+    </section>
+      
+
+      <div class="container">
+        
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
