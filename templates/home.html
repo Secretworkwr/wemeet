@@ -20,7 +20,6 @@
         </ul>
         <div class="nav-icons">
             <a href="{% url 'vcall' %}"><i class='bx bx-video-plus'></i></a>
-            <a href="{% url 'chat' %}"><i class='bx bx-message-rounded-dots'></i></a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -69,7 +68,7 @@
                  and interact effortlessly. Whether for casual 
                  conversation or quick inquiries, NEON's chatbot is 
                  designed to make chatting enjoyable and efficient.</p>
-                 <a href="#" class="btn">Make chat<i class='bx bxs-right-arrow'></i></a>
+                 <a href="{% url 'chatbot_page' %}" class="btn">Make chat<i class='bx bxs-right-arrow'></i></a>
         </div>
         
         
