@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeMeet</title>
+    <link rel="stylesheet" href="{% static 'css/verify_otp.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="login form">
+            <header>Verify OTP</header>
+            <form method="post">
+                {% csrf_token %}
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+                <input type="submit" class="button" value="Verify OTP">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

@@ -16,6 +16,8 @@ urlpatterns = [
     path('join/',views.join_room,name='join'),
     path('neon/', views.chatbot_page, name='chatbot_page'),
     path('chatbot/', views.chatbot_view, name='chatbot'), 
+    path('send-otp/', views.send_otp, name='send_otp'),
+    path('verify-otp/', views.verify_otp, name='verify_otp'),
    
     
 ]

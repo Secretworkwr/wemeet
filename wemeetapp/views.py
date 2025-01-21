@@ -9,6 +9,13 @@ import json
 import google.generativeai as genai
 
 
+from django.core.mail import send_mail
+from django.contrib import messages
+from django.http import JsonResponse
+from .models import OTPVerification
+from .utils import generate_otp  
+
+
 genai.configure(api_key='AIzaSyAfrDvCd8k5z14rH6qZYGUvJchxuJc6Lco')
 
     
@@ -23,10 +30,35 @@ def signup(request):
         username = request.POST.get('username')
         email=request.POST.get('email')
         password = request.POST.get('password')
+        otp = generate_otp()
+
+        
+
+    
 
         user = User.objects.create_user(username=username,email=email,password=password)
         if user is not None:
-            return redirect('/') 
+            # Save OTP and email to database
+            OTPVerification.objects.update_or_create(email=email, defaults={'otp': otp})
+
+            # Send email
+            send_mail(
+            subject='Your Login OTP',
+            message=f'Your OTP is {otp}',
+            from_email='secretwork503@gmail.com',
+            recipient_list=[email],
+            fail_silently=False,
+            )
+            messages.success(request, 'OTP sent to your email.')
+            return redirect('verify_otp')
+            
+        
+        return render(request, 'index.html')
+        
+
+        
+
+        
 
 def signin(request):
      if request.method == 'POST':
@@ -164,3 +196,42 @@ def chatbot_view(request):
 
 def chatbot_page(request):
     return render(request, 'chatbot.html')
+
+
+
+# View to send OTP
+def send_otp(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        otp = generate_otp()
+
+        # Save OTP and email to database
+        OTPVerification.objects.update_or_create(email=email, defaults={'otp': otp})
+
+        # Send email
+        send_mail(
+            subject='Your Login OTP',
+            message=f'Your OTP is {otp}',
+            from_email='secretwork503@gmail.com',
+            recipient_list=[email],
+            fail_silently=False,
+        )
+        messages.success(request, 'OTP sent to your email.')
+        return redirect('verify_otp')
+
+    return render(request, 'send_otp.html')
+
+# View to verify OTP
+def verify_otp(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        otp = request.POST.get('otp')
+
+        try:
+            record = OTPVerification.objects.get(email=email, otp=otp)
+            messages.success(request, 'Login successful.')
+            return redirect('home')  # Redirect to the dashboard or any protected page
+        except OTPVerification.DoesNotExist:
+            messages.error(request, 'Invalid OTP. Please try again.')
+
+    return render(request, 'verify_otp.html')
